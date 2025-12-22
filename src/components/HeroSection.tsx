@@ -107,8 +107,8 @@ const HeroSection = () => {
               </div>
               <div className="w-px h-12 bg-border hidden sm:block" />
               <div className="text-center">
-                <div className="stat-number text-secondary">15-30</div>
-                <p className="text-sm text-muted-foreground mt-1">Days with CCB training</p>
+                <div className="stat-number text-secondary">03-06</div>
+                <p className="text-sm text-muted-foreground mt-1">Month with CCB training</p>
               </div>
             </div>
           </motion.div>
