@@ -11,14 +11,14 @@ const founders = [
     role: "Founder",
     description:
       "Passionate about bridging the industry-academia gap through innovative workforce solutions.",
-    linkedin: "https://www.linkedin.com/in/ghani-khan-7bb337288",
+    linkedin: "https://www.linkedin.com/in/ghani-khan-7bb337288?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
   },
   {
     name: "SUMMAIYA UNNISA BEGUM",
     role: "Founder",
     description:
       "Committed to creating meaningful employment opportunities for engineering graduates.",
-    linkedin: "https://www.linkedin.com/in/summaiya-unisa-7a37b7242",
+    linkedin: "https://www.linkedin.com/in/summaiya-unisa-7a37b7242?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
   },
 ];
 
