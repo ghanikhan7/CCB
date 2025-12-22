@@ -1,120 +1,163 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { MapPin, Target, Linkedin } from "lucide-react";
-const founders = [{
-  name: "MOHAMMED ABDUL GHANI ALI KHAN",
-  role: "Founder",
-  description: "Passionate about bridging the industry-academia gap through innovative workforce solutions."
-}, {
-  name: "SUMMAIYA UNNISA BEGUM",
-  role: "Founder",
-  description: "Committed to creating meaningful employment opportunities for engineering graduates."
-}];
+
+/* =========================
+   Founders Data
+========================= */
+const founders = [
+  {
+    name: "MOHAMMED ABDUL GHANI ALI KHAN",
+    role: "Founder",
+    description:
+      "Passionate about bridging the industry-academia gap through innovative workforce solutions.",
+    linkedin: "https://www.linkedin.com/in/ghani-khan-7bb337288",
+  },
+  {
+    name: "SUMMAIYA UNNISA BEGUM",
+    role: "Founder",
+    description:
+      "Committed to creating meaningful employment opportunities for engineering graduates.",
+    linkedin: "https://www.linkedin.com/in/summaiya-unisa-7a37b7242",
+  },
+];
+
+/* =========================
+   About Section Component
+========================= */
 const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
-    margin: "-100px"
+    margin: "-100px",
   });
-  return <section id="about" className="section-padding">
+
+  return (
+    <section id="about" className="section-padding">
       <div className="container-narrow mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left - About CCB */}
-          <motion.div ref={ref} initial={{
-          opacity: 0,
-          x: -30
-        }} animate={isInView ? {
-          opacity: 1,
-          x: 0
-        } : {}} transition={{
-          duration: 0.5
-        }}>
-            <span className="text-sm font-semibold text-secondary uppercase tracking-wider">About Us</span>
+
+          {/* ================= Left: About CCB ================= */}
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="text-sm font-semibold text-secondary uppercase tracking-wider">
+              About Us
+            </span>
+
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-4 mb-6">
               Company Champs Bridge
             </h2>
-            
+
             <div className="space-y-6">
               <p className="text-lg text-muted-foreground">
-                CCB (Company Champs Bridge Pvt. Ltd.) is India's First Company-Driven Skill Campus. 
-                We're building the bridge between academia and industry that India desperately needs.
+                CCB (Company Champs Bridge Pvt. Ltd.) is India’s first
+                company-driven skill campus. We bridge the gap between
+                academia and industry by aligning education with real hiring needs.
               </p>
-              
+
+              {/* Mission */}
               <div className="flex items-start gap-4 p-4 rounded-xl bg-accent">
                 <div className="w-10 h-10 rounded-lg bg-primary-muted text-primary flex items-center justify-center flex-shrink-0">
                   <Target className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">Our Mission</h4>
+                  <h4 className="font-semibold text-foreground mb-1">
+                    Our Mission
+                  </h4>
                   <p className="text-muted-foreground">
-                    Make students industry-ready before they apply for jobs—not after they're hired.
+                    Make students industry-ready before they apply for jobs —
+                    not after they’re hired.
                   </p>
                 </div>
               </div>
-              
+
+              {/* Location */}
               <div className="flex items-start gap-4 p-4 rounded-xl bg-accent">
                 <div className="w-10 h-10 rounded-lg bg-secondary-muted text-secondary flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">Location</h4>
+                  <h4 className="font-semibold text-foreground mb-1">
+                    Location
+                  </h4>
                   <p className="text-muted-foreground">
-                    Headquartered in Hyderabad, Telangana—the heart of India's tech ecosystem.
+                    Headquartered in Hyderabad, Telangana — the heart of
+                    India’s tech ecosystem.
                   </p>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Right - Founders */}
-          <motion.div initial={{
-          opacity: 0,
-          x: 30
-        }} animate={isInView ? {
-          opacity: 1,
-          x: 0
-        } : {}} transition={{
-          duration: 0.5,
-          delay: 0.2
-        }}>
-            <span className="text-sm font-semibold text-secondary uppercase tracking-wider">Leadership</span>
+          {/* ================= Right: Founders ================= */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <span className="text-sm font-semibold text-secondary uppercase tracking-wider">
+              Leadership
+            </span>
+
             <h3 className="text-2xl font-bold text-foreground mt-4 mb-6">
               Meet the Founders
             </h3>
-            
+
             <div className="space-y-4">
-              {founders.map((founder, index) => <motion.div key={founder.name} initial={{
-              opacity: 0,
-              y: 20
-            }} animate={isInView ? {
-              opacity: 1,
-              y: 0
-            } : {}} transition={{
-              duration: 0.4,
-              delay: 0.3 + index * 0.1
-            }} className="card-elevated p-6">
-                  <div className="flex-grow">
-                    <div className="flex items-center justify-between mb-2">
-                      <div>
-                        <h4 className="font-semibold text-foreground text-sm">{founder.name}</h4>
-                        <p className="font-medium text-base text-ring">{founder.role}</p>
-                      </div>
-                      <button className="p-2 rounded-lg hover:bg-accent transition-colors" aria-label="LinkedIn profile">
-                        <Linkedin className="w-5 h-5 text-muted-foreground" />
-                      </button>
+              {founders.map((founder, index) => (
+                <motion.div
+                  key={founder.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{
+                    duration: 0.4,
+                    delay: 0.3 + index * 0.1,
+                  }}
+                  className="card-elevated p-6"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h4 className="font-semibold text-foreground text-sm">
+                        {founder.name}
+                      </h4>
+                      <p className="font-medium text-base text-ring">
+                        {founder.role}
+                      </p>
                     </div>
-                    <p className="text-sm text-muted-foreground">{founder.description}</p>
+
+                    {/* LinkedIn Icon */}
+                    <a
+                      href={founder.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${founder.name} LinkedIn profile`}
+                      className="p-2 rounded-lg hover:bg-accent transition-colors"
+                    >
+                      <Linkedin className="w-5 h-5 text-muted-foreground hover:text-[#0A66C2] transition-colors" />
+                    </a>
                   </div>
-                </motion.div>)}
+
+                  <p className="mt-3 text-sm text-muted-foreground">
+                    {founder.description}
+                  </p>
+                </motion.div>
+              ))}
             </div>
 
             <p className="mt-6 text-sm text-muted-foreground italic">
-              "We started CCB because we saw the same problem from both sides—as engineers who trained freshers, 
-              and as job seekers who struggled despite good degrees."
+              “We started CCB after experiencing the same problem from both sides —
+              training freshers in companies and struggling as job seekers despite good degrees.”
             </p>
           </motion.div>
+
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default AboutSection;
